@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>DdeviceOrientation</title>
+    <style>
+        html body .wrapper {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            position: relative;
+        }
+
+        .wrapper .box {
+            height: 100px;
+            width: 100px;
+            background-color: #ff6700;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin-left: -50px;
+            margin-top: 100px;
+        }
+
+        .wrapper .box-outer {
+            height: 150px;
+            width: 150px;
+            background-color: rgba(0, 0, 0, 0);
+            border: 5px solid #000;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin-left: -75px;
+            margin-top: 75px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+
+        <div id="msg"></div>
+
+
+        <div class="box-outer" id="box-outer"></div>
+        <div class="box" id="box"></div>
+    </div>
+    <script>
+        if (window.DeviceOrientationEvent) {
+            window.addEventListener('deviceorientation', DeviceOrientationHandler, true);
+        } else {
+            alert("您的浏览器不支持DeviceOrientation");
+        }
+
+        function DeviceOrientationHandler(event) {
+            var alpha = event.alpha,
+                beta = event.beta,
+                gamma = event.gamma,
+
+                dataContainerOrientation = document.getElementById("msg")
+
+            if (alpha != null || beta != null || gamma != null) {
+
+                var box = document.getElementById('box');
+                var box2 = document.getElementById('box-outer');
+                box.style.marginLeft = parseInt(gamma / 2) - 50 + 'px';
+                box.style.marginTop = parseInt(beta / 2) + 100 + 'px';
+                box2.style.marginTop = parseInt(beta / 3) + 75 + 'px';
+                box2.style.marginLeft = parseInt(gamma / 3) - 75 + 'px';
+
+
+            } else {
+                dataContainerOrientation.innerHTML = "当前浏览器不支持DeviceOrientation";
+            }
+        }  
+    </script>
+</body>
+
+</html>
