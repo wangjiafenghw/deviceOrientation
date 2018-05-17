@@ -50,6 +50,7 @@
         <div class="box" id="box"></div>
     </div>
     <script>
+        //鸣谢：yilian_develope  参考： https://blog.csdn.net/yilian_develope/article/details/52753904
         if (window.DeviceOrientationEvent) {
             window.addEventListener('deviceorientation', DeviceOrientationHandler, true);
         } else {
@@ -67,6 +68,9 @@
 
                 var box = document.getElementById('box');
                 var box2 = document.getElementById('box-outer');
+
+                //演示效果粗略实现，用css3 3D 改变舞台角度来实现效果也是不错的选择
+
                 box.style.marginLeft = parseInt(gamma / 2) - 50 + 'px';
                 box.style.marginTop = parseInt(beta / 2) + 100 + 'px';
                 box2.style.marginTop = parseInt(beta / 3) + 75 + 'px';
