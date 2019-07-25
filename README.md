@@ -1,11 +1,7 @@
 # deviceOrientation
 基于deviceOrientation实现手机改变角度视觉滚动
-手机演示：
 
-![二维码]
-(http://note.youdao.com/yws/res/542/WEBRESOURCE538876bcc90a65e31a98b6bf128f6883)
-
-使用手机重力感应器，通过h5的api进行调用DeviceOrientationEvent，这是一个事件，翻译过来就是设备方向事件。
+使用手机重力感应器，通过h5的api进行调用DeviceOrientationEvent，这是一个事件，直接翻译过来就是设备方向事件。
 ```
 // 通过监听设备方向改变事件deviceorientation来触发DeviceOrientationHandler，事件句柄在捕获阶段执行
 if (window.DeviceOrientationEvent) {
